@@ -1,0 +1,35 @@
+﻿@model _50DersteMvc.Models.Entity.TblMusteriler
+@{
+    ViewBag.Title = "YeniMüsteri";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<form  method="post" class="form-group">
+    <div>
+        <label>Müşteri Adı</label>
+        <input type="text" name="MUSTERAD" class="form-control" />
+        @Html.ValidationMessageFor(x=>x.MUSTERAD, "", new { @style = "color:red" })
+    </div>
+    <br />
+    
+    <div>
+        <label>Müşteri Soyad</label>
+        <input type="text" name="MUSTERISOYAD" class="form-control" />
+        @Html.ValidationMessageFor(x => x.MUSTERAD, "", new { @style = "color:red" })
+    </div>
+    
+
+    <div style="margin-top:15px;">
+        <button class="btn btn-info" id="btn1" >Müşteri Ekle</button>
+    </div>
+
+
+    <script>
+        $('#btn1').click(function ()
+        {
+            alert('Müşteri Ekleme İşlemi Yapıldı..!');
+        });
+    </script>
+</form>

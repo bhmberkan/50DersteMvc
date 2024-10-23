@@ -1,0 +1,63 @@
+﻿@model _50DersteMvc.Models.Entity.TblSatıslar
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+ @* ilk kısım partial'ın ismi ikinci kısım da controller ismi' *@
+@Html.Action("liste","Satis") <br />
+
+@Html.Action("liste2","Satis")
+
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    Satış Yap
+</button>
+
+@*<a class="btn btn-success" data-id="1" data-toggle="modal" data-target="#Modal1">ID gönder</a>*@
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"> Satış Yapma ekranı</h2>
+            </div>
+            <form method="post" action="/Satis/YeniSatis/">
+                <div class="modal-body">
+                    @* <label> Ürün ID : <span id="urunID"></span></label> <br />*@
+
+                    <label>Ürün Adı</label>
+                    @Html.TextBoxFor(x => x.URUN, new { @class = "form-control", type = "number", required = "" }) <br />
+
+                    <label>Müsteri</label>
+                    @Html.TextBoxFor(x => x.MUSTERI, new { @class = "form-control", type = "number", required = "" }) <br />
+
+                    <label>Adet</label>
+                    @Html.TextBoxFor(x => x.ADET, new { @class = "form-control", required = "" }) <br />
+
+                    <label>Fiyat</label>
+                    @Html.TextBoxFor(x => x.FIYAT, new { @class = "form-control", required = "" }) <br />
+
+                    <button type="submit" class="btn btn-info">Satış İşlemini Yap</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@*<script>
+        $('#Modal1').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var id = button.data('id');
+
+            var modal = $(this);
+            modal.find('#urunID').text(id);
+
+        });
+
+    </script>*@

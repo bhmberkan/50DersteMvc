@@ -1,0 +1,42 @@
+﻿@model _50DersteMvc.Models.Entity.TblUrunler
+
+@{
+    ViewBag.Title = "YeniUrunEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+
+
+<form  method="post" class="form-group">
+    <div>
+        <label>URUN ADI</label>
+        <input type="text" name="URUNAD" class="form-control" required="" maxlength="50" placeholder="Buraya Ürün adı giriniz"/>
+    </div>  <br />
+    
+    <div>
+        <label>MARKA</label>
+        <input type="text" name="MARKA" class="form-control" required="" placeholder="Buraya Markayı giriniz" maxlength="50" />
+    </div> <br />
+    
+    <div>
+        <label>KATEGORİ</label>
+       @Html.DropDownListFor(x=>x.TblKategoriler.KATEGORIID,(List<SelectListItem>)ViewBag.DropDownDegerler, new {@class="form-control" })
+    </div> <br />
+
+     <div>
+        <label>FİYAT</label>
+        <input type="number" name="FIYAT" class="form-control" required=""  placeholder="Buraya Fiyat bilgisi giriniz" />
+    </div> <br />
+
+    <div>
+        <label>STOK ADETİ</label>
+        <input type="number" name="STOK" class="form-control" required="" placeholder=" Stok adeti giriniz" />
+    </div> 
+
+    <div>
+        <button class="btn btn-info" style="margin-top:10px">Ürün Ekle </button>
+    </div>
+</form>
+

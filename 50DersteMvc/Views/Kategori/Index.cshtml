@@ -1,0 +1,36 @@
+﻿@using _50DersteMvc.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TblKategoriler>
+@*@model List<TblKategoriler>*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>KATEGORİ İD</th>
+        <th>KATEGORİ ADI</th>
+        <th>SİL </th>
+        <th>GÜNCELLE </th>
+        
+    </tr>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.KATEGORIID</td>
+                <td>@x.KATEGORIAD</td>
+                <td><a href="/Kategori/Sil/@x.KATEGORIID" class="btn btn-danger" > SİL </a></td>
+                <td><a href="/Kategori/KategoriGetir/@x.KATEGORIID" class="btn btn-success">Güncelle</a> </td>
+            </tr>
+        }
+    </tbody>
+       
+    
+</table>
+
+@Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index",new { sayfa}))  @*paing sayfalama işlemi*@
+
+<a href="/Kategori/YeniKategori/" class="btn btn-primary">Yeni Kategori Ekle</a>

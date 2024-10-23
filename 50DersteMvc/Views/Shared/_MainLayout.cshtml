@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bhmberkan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Mvc Stok</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/Kategori/Index">Kategoriler</a></li>
+                <li><a href="/Urunler/Index">Ürünler</a></li>
+                <li><a href="/Musteri/Index">Müşteriler</a></li>
+                <li><a href="/Satis/Index">Satışlar</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#Modalyrd">Yardım</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <div class="modal fade" id="Modalyrd">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title"> Yardım ekranı</h2>
+                </div>
+                <form method="post">
+                    <div class="modal-body">
+
+
+                        <label>Berkan Burak</label> <br />
+                        <label>Turgut</label> <br />
+                        <label>insta: <a href="https://www.instagram.com/bhmberkan/">bhmberkan</a></label> <br />
+                        <label>2024 | 50 derste mvc</label>
+                        <img src="~/img/DSC07691.JPG" style="width:15%; height:15%; margin-top:-90px; margin-left:300px;  box-shadow: 5px 5px 5px 2px rgba(0,0,0,1)" />
+                       
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        @RenderBody()  @*layouta bağlı olarak gelen sayfaların içeriği burada olacak  sabit kalmayacak kısımlar *@
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@using _50DersteMvc.Models.Entity
+@model List<TblMusteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+
+<h2>Müşteriler</h2>
+
+@using (Html.BeginForm("Index", "Musteri", FormMethod.Get))
+{
+    <p>
+        <b> Aranacak Müşteri Adı : </b> @Html.TextBox("p")
+        <input type="submit" value="ara" class="btn btn-warning"/>
+    </p>
+
+}
+<table class="table table-bordered">
+    <tr>
+        <th>MÜŞTERİ İD</th>
+        <th>MÜŞTERİ ADI</th>
+        <th>MÜŞTERİ SOYAD </th>
+        <th>SİL </th>
+        <th>Güncelle</th>
+        <th>ALERT</th>
+
+
+    </tr>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.MUSTERIID</td>
+                <td>@x.MUSTERAD</td>
+                <td>@x.MUSTERISOYAD</td>
+                <td><a href="/Musteri/Sil/@x.MUSTERIID" class="btn btn-danger"> SİL </a></td>
+                <td><a href="/Musteri/MusteriGetir/@x.MUSTERIID" class="btn btn-success">Güncelle</a> </td>
+                <td>@Html.ActionLink("SİL BUTONU", "Sil", new { id = x.MUSTERIID }, new { @class = "btn btn-warning", onclick = "return confirm('Gerçekten silmek istiyor musunuz ?')" })</td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+<a href="/Musteri/YeniMüsteri" class="btn btn-primary">Yeni Müsteri Ekle</a>

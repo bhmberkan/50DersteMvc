@@ -1,0 +1,59 @@
+﻿@using _50DersteMvc.Models.Entity
+@model List<TblUrunler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<h2>ürünler</h2>
+
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ÜRÜN İD</th>
+            <th>ÜRÜN ADI</th>
+            <th>MARKA </th>
+            <th>ÜRÜNKATEGORİ </th>
+            <th>FİYAT </th>
+            <th>STOK </th>
+            <th>SİL </th>
+            <th>GÜNCELLE </th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.URUNID</td>
+                <td>@x.URUNAD</td>
+                <td>@x.MARKA</td>
+                <td>@x.TblKategoriler.KATEGORIAD</td>
+                <td>@x.FIYAT</td>
+                <td>@x.STOK</td>
+                <td><a href="/Urunler/Sil/@x.URUNID" class="btn btn-danger"> SİL </a></td>
+                <td><a href="/Urunler/UrunGetir/@x.URUNID" class="btn btn-success">Güncelle</a> </td>
+
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+<a href="/Urunler/YeniUrunEkle" class="btn btn-primary"> Yeni Ürün EKle </a>
+
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+<script>
+    $('#tbl1').DataTable({
+        "language" : { "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Turkish.json" }
+
+    });
+</script>

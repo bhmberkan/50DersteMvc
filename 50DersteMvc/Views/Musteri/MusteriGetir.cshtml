@@ -1,0 +1,30 @@
+﻿@model _50DersteMvc.Models.Entity.TblMusteriler
+@{
+    ViewBag.Title = "MusteriGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Guncelle", "Musteri", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.MUSTERIID)
+        @Html.TextBoxFor(x => x.MUSTERIID, new { @class = "form-control" }) <br />
+
+
+
+        @Html.LabelFor(x => x.MUSTERAD)
+        @Html.TextBoxFor(x => x.MUSTERAD, new { @class = "form-control" }) <br />
+
+
+
+        @Html.LabelFor(x => x.MUSTERISOYAD)
+        @Html.TextBoxFor(x => x.MUSTERISOYAD, new { @class = "form-control" }) <br />
+    </div>
+
+    <div>
+        <button class="btn btn-warning">Müşteri Güncelle</button>
+    </div>
+}
+
+

@@ -1,0 +1,38 @@
+﻿@using _50DersteMvc.Models.Entity;
+@model List<TblSatıslar>
+
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>SATIŞ ID</th>
+        <th>ÜRÜN</th>
+        <th>MUSTERİ </th>
+        <th>STOK </th>
+        <th>FİYAT </th>
+
+
+
+
+
+    </tr>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.SATISID</td>
+                <td>@x.URUN</td>
+                <td>@x.MUSTERI</td>
+                <td>@x.ADET</td>
+                <td>@x.FIYAT</td>
+                
+
+
+
+            </tr>
+        }
+    </tbody>
+
+
+</table>

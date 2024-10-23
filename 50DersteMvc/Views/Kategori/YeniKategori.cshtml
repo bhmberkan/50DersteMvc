@@ -1,0 +1,33 @@
+﻿@model _50DersteMvc.Models.Entity.TblKategoriler
+@{
+    ViewBag.Title = "YeniKategori";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+
+<form  method="post" class="form-group">
+    <!--<div>
+
+        <label> Kategori Adı</label>
+        <input type="text" name="KATEGORIAD"  class="form-control"/>-->  @*buradaki name kısmı veri tabanı ile aynı olmalıdır.*@
+    <!--</div>-->
+    <div>
+        <label>Kategori Adı</label>
+        @Html.TextBoxFor(x => x.KATEGORIAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.KATEGORIAD, "", new { @style = "color:red" })
+      
+        @*modelde tblkategoriler kısmında adın üstüne yazdığımız kısımla ilgili yer burası
+        [Required(ErrorMessage = "Kategori Adını Boş Bırakamazsınız..!")]
+        ValidationMessageFor kısmı yani*@ 
+
+    </div>
+   
+    <div style=" margin-top:15px ">
+        <button class="btn btn-info">Kategori Ekle</button>
+    </div>
+
+
+</form>
+
