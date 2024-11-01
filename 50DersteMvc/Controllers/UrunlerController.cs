@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using _50DersteMvc.Models.Entity;
+using PagedList;
+using PagedList.Mvc;
 
 namespace _50DersteMvc.Controllers
 {
@@ -11,9 +13,9 @@ namespace _50DersteMvc.Controllers
     {
         // GET: Urunler
         MvcDbStokEntities db = new MvcDbStokEntities();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var urun = db.TblUrunler.ToList();
+            var urun = db.TblUrunler.ToList().ToPagedList(sayfa , 4);
             return View(urun);
         }
 

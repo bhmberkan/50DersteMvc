@@ -1,5 +1,8 @@
 ﻿@using _50DersteMvc.Models.Entity
-@model List<TblUrunler>
+@model  PagedList.IPagedList<TblUrunler>
+@using PagedList
+@using PagedList.Mvc
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -7,7 +10,6 @@
 
 
 <h2>ürünler</h2>
-
 
 <table id="tbl1" class="table table-bordered">
     <thead>
@@ -41,19 +43,21 @@
             </tr>
         }
     </tbody>
-
-
 </table>
 
 <a href="/Urunler/YeniUrunEkle" class="btn btn-primary"> Yeni Ürün EKle </a>
 
+
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa })) 
+
+@*aşşağıdaki klısımlar eklenince yazılar falan geliyor istersen ekle istemezsen ekleme*@
 
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
 
 <script>
     $('#tbl1').DataTable({
-        "language" : { "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Turkish.json" }
+        "language": { "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Turkish.json" }
 
     });
 </script>
